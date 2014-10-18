@@ -27,8 +27,7 @@ void loop(){
   temp = max(min((analogRead(1) - 700.0f) * 10.0f, 250.0f), 0);
   Serial.print("temp: ");
   Serial.println(temp);
-  analogWrite(RED, 255 - temp);
-  analogWrite(BLUE, temp);
+  setColor(255 - temp, 255, temp);
 
   //this section is for reading the analog pressure sensor
   pres = analogRead(PRES_PIN);
@@ -37,6 +36,10 @@ void loop(){
   analogWrite(MOTOR, pres);
 
   delay(delayTime);
-  
 }
 
+void setColor(int red_val, int green_val, int blue_val){
+  analogWrite(RED, red_val);
+  analogWrite(GREEN, green_val);
+  analogWrite(BLUE, blue_val);
+}
