@@ -20,7 +20,8 @@ void loop(){
   val = min((analogRead(1) - 700.0f) * 10.0f, 250.0f);
   Serial.print("analog 1 is: ");
   Serial.println(val);
-  analogWrite(RED, val);
+  analogWrite(RED, 255 - val);
+  analogWrite(BLUE, val);
   delay(10);
 }
 
