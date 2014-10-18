@@ -12,7 +12,7 @@
 void setup()
 {                
   Serial.begin(38400);
-    pinMode(GREEN, OUTPUT);
+  pinMode(GREEN, OUTPUT);
   pinMode(BLUE, OUTPUT);
   pinMode(RED, OUTPUT);
   digitalWrite(GREEN, HIGH);
