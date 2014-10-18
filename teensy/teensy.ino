@@ -1,4 +1,4 @@
-// HWeekend 2014 - Feedback for augmented prostetic limb
+// HWeekend 2014 - Feedback for augmented prostetic lim
 
 
 #define GREEN 14
