@@ -6,6 +6,7 @@
 #define RED 12
 #define MOTOR 10
 #define PRES_PIN 5
+#define BUZZER 6
 #define delayTime 20
 #define pres_thres 150
 
@@ -15,9 +16,37 @@ void setup()
   pinMode(GREEN, OUTPUT);
   pinMode(BLUE, OUTPUT);
   pinMode(RED, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
   digitalWrite(GREEN, HIGH);
   digitalWrite(BLUE, HIGH);
   digitalWrite(RED, HIGH);
+  selftest();
+}
+
+void selftest() {
+  setColor(255, 0, 0);
+  for(int i = 0; i < 20; i++){
+    digitalWrite(BUZZER, HIGH);
+    delay(3);
+    digitalWrite(BUZZER, LOW);
+    delay(3);
+  }
+  setColor(0, 255, 0);
+  for(int i = 0; i < 50; i++){
+    digitalWrite(BUZZER, HIGH);
+    delay(2);
+    digitalWrite(BUZZER, LOW);
+    delay(2);
+  }
+  setColor(0, 0, 150);
+  for(int i = 0; i < 100; i++){
+    digitalWrite(BUZZER, HIGH);
+    delay(1);
+    digitalWrite(BUZZER, LOW);
+    delay(1);
+  }
+  setColor(255, 255, 255);
+  delay(1000);
 }
 
 float temp;
