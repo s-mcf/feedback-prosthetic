@@ -18,21 +18,21 @@ void setup()
   digitalWrite(RED, HIGH);
 }
 
-float val;
-float val2;
+float temp;
+float pres;
 
 void loop(){
-  val = max(min((analogRead(1) - 700.0f) * 10.0f, 250.0f), 0);
+  temp = max(min((analogRead(1) - 700.0f) * 10.0f, 250.0f), 0);
   Serial.print("analog 1 is: ");
-  Serial.println(val);
-  analogWrite(RED, 255 - val);
-  analogWrite(BLUE, val);
+  Serial.println(temp);
+  analogWrite(RED, 255 - temp);
+  analogWrite(BLUE, temp);
   
   //this section is for reading the analog pressure sensor
-  val2 = analogRead(5);
+  pres = analogRead(5);
   Serial.print("analog 2 is: ");
-  Serial.println(val2);
-  delay(10);
+  Serial.println(pres);
+  delay(delayTime);
   
 }
 
