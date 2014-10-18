@@ -17,7 +17,7 @@ void setup()
 float val;
 
 void loop(){
-  val = min((analogRead(1) - 700.0f) * 10.0f, 250.0f);
+  val = max(min((analogRead(1) - 700.0f) * 10.0f, 250.0f), 0);
   Serial.print("analog 1 is: ");
   Serial.println(val);
   analogWrite(RED, 255 - val);
