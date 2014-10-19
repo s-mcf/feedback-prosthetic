@@ -66,7 +66,7 @@ void loop(){
   setColor(temp, 0, 255 - temp);
 
   //this section is for reading the analog pressure sensor
-  pres = (analogRead(PRES_PIN) - basePres) * 10.0f;
+  pres = (analogRead(PRES_PIN) - basePres) * 30.0f;
   pres = constrain(pres, 0, 250);
   Serial.print("pres: ");
   Serial.println(pres);
