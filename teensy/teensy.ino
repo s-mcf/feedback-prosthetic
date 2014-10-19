@@ -6,11 +6,13 @@
 #define RED 12
 #define MOTOR 10
 #define PRES_PIN 5
+#define TEMP_PIN 1
 #define BUZZER 6
 #define delayTime 20
 #define pres_thres 150
 
 int baseTemp;
+int basePres;
 
 void setup()
 {                
@@ -22,7 +24,8 @@ void setup()
   digitalWrite(GREEN, HIGH);
   digitalWrite(BLUE, HIGH);
   digitalWrite(RED, HIGH);
-  baseTemp = analogRead(1);
+  baseTemp = analogRead(TEMP_PIN);
+  basePres = analogRead(PRES_PIN);
   selftest();
 }
 
