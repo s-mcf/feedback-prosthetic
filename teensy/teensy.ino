@@ -10,6 +10,8 @@
 #define delayTime 20
 #define pres_thres 150
 
+int baseTemp;
+
 void setup()
 {                
   Serial.begin(38400);
@@ -20,6 +22,7 @@ void setup()
   digitalWrite(GREEN, HIGH);
   digitalWrite(BLUE, HIGH);
   digitalWrite(RED, HIGH);
+  baseTemp = analogRead(1);
   selftest();
 }
 
@@ -53,7 +56,7 @@ float temp;
 float pres;
 
 void loop(){
-  temp = max(min((analogRead(1) - 700.0f) * 10.0f, 250.0f), 0);
+  temp = max(min((analogRead(1) - baseTemp) * 10.0f, 250.0f), 0);
   Serial.print("temp: ");
   Serial.println(temp);
   setColor(temp, 0, 255 - temp);
