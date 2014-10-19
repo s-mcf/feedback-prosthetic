@@ -52,17 +52,19 @@ void selftest() {
   delay(1000);
 }
 
-float temp;
-float pres;
+int temp;
+int pres;
 
 void loop(){
-  temp = max(min((analogRead(1) - baseTemp) * 10.0f, 250.0f), 0);
+  temp = (analogRead(TEMP_PIN) - baseTemp) * 10.0f;
+  temp = constrain(temp, 0, 250);
   Serial.print("temp: ");
   Serial.println(temp);
   setColor(temp, 0, 255 - temp);
 
   //this section is for reading the analog pressure sensor
-  pres = analogRead(PRES_PIN);
+  pres = (analogRead(PRES_PIN) - basePres) * 10.0f;
+  pres = constrain(pres, 0, 250);
   Serial.print("pres: ");
   Serial.println(pres);
   analogWrite(MOTOR, pres);
