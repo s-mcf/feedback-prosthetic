@@ -8,7 +8,7 @@
 #define RED 12
 #define MOTOR 10
 #define PRES_PIN 5
-#define TEMP_PIN 1
+#define TEMP_PIN 2
 #define BUZZER 6
 #define delayTime 20
 #define pres_thres 150
@@ -63,7 +63,7 @@ int temp;
 int pres;
 
 void loop(){
-  temp = (analogRead(TEMP_PIN) - baseTemp) * 5.0f;
+  temp = (baseTemp - analogRead(TEMP_PIN)) * 5.0f;
   temp = constrain(temp, 5, 250);
   Serial.print("temp: ");
   Serial.println(temp);
