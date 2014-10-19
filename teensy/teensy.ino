@@ -76,6 +76,11 @@ void loop(){
   Serial.println(pres);
   analogWrite(MOTOR, pres);
 
+  ping.fire();
+  Serial.print("Inches ");
+  Serial.print(ping.inches());
+  Serial.println();
+
   delay(delayTime);
 }
 
