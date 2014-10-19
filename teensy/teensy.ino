@@ -63,7 +63,7 @@ int temp;
 int pres;
 
 void loop(){
-  temp = (analogRead(TEMP_PIN) - baseTemp) * 10.0f;
+  temp = (analogRead(TEMP_PIN) - baseTemp) * 5.0f;
   temp = constrain(temp, 5, 250);
   Serial.print("temp: ");
   Serial.println(temp);
