@@ -1,3 +1,5 @@
+#include <Ping2.h>
+
 // HWeekend 2014 - Feedback for augmented prostetic limb
 
 
@@ -13,6 +15,8 @@
 
 int baseTemp;
 int basePres;
+
+Ping2 ping = Ping2(2,3);
 
 void setup()
 {                
