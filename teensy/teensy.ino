@@ -82,6 +82,7 @@ void loop(){
   Serial.println();
 
   delay(delayTime);
+  Serial.print("\e[1;1H\e[2J");
 }
 
 void setColor(int red_val, int green_val, int blue_val){
